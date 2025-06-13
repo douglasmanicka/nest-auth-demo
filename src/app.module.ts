@@ -4,6 +4,8 @@ import { AppService } from './app.service';
 //import { ConfigModule,ConfigService } from '@nestjs/config';
 import { ConfigModule, } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
+import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -15,6 +17,10 @@ import { MongooseModule } from '@nestjs/mongoose';
         uri: process.env.MONGO_URI,  // Acessando a variável de ambiente MONGO_URI
       }),
     }),
+    
+    UsersModule,
+    
+    AuthModule,
 
     //  // Conectar ao MongoDB usando a variável de ambiente
     //  MongooseModule.forRootAsync({
